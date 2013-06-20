@@ -6,12 +6,14 @@ This extension is just a simple administration screen and partial that can be us
 Installation
 ============
 
-* Add "gem 'spree_newsletter_subscribers', :git => 'git://github.com/markalinn/Spree-Newsletter-Subscribers.git'" to your Gemfile
+* Add "gem 'spree_newsletter_subscribers', :git => 'git://github.com/Michael1969/Spree-Newsletter-Subscribers.git'" to your Gemfile
 * Run "bundle"
 * Run "rails g spree_newsletter_subscribers:install" and select "Y" to run the migrations
 * And.....Insert form into your views where appropriate, such as:
 
 			<%= form_for :newsletter_subscriber, :url => :newsletter_subscriber do |f| %>
+				<%= f.text_field :first_name %>
+				<%= f.text_field :last_name %>
 				<%= f.text_field :email %>
 				<%= f.submit 'SUBSCRIBE' %>
 			<% end %>
