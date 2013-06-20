@@ -11,7 +11,7 @@ Installation
 * Run "rails g spree_newsletter_subscribers:install" and select "Y" to run the migrations
 * And.....Insert form into your views where appropriate, such as:
 
-			<%= form_for :newsletter_subscriber, :url => :newsletter_subscriber do |f| %>
+			<%= form_for :newsletter_subscribers, :url => :newsletter_subscribers do |f| %>
 				<%= f.text_field :first_name %>
 				<%= f.text_field :last_name %>
 				<%= f.text_field :email %>
