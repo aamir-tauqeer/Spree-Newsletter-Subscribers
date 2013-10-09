@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.description = 'Spree extension for locally stored newsletter subscribers'
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author    = 'Mark Linn'
-  s.email     = 'marklinn@xwcsolutions.com'
-  s.homepage  = 'http://www.xwcsolutions.com'
+  s.author    = 'Kae Wan'
+  s.email     = 'marketing.guru1@gmail.com'
+  s.homepage  = ''
 
   #s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
