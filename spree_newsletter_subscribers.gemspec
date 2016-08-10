@@ -2,10 +2,9 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_newsletter_subscribers'
-  s.version     = '1.1.4'
+  s.version     = '3.1.0.beta'
   s.summary     = 'Spree extension for locally stored newsletter subscribers'
   s.description = 'Spree extension for locally stored newsletter subscribers'
-  s.required_ruby_version = '>= 1.8.7'
 
   s.author    = 'Kae Wan'
   s.email     = 'marketing.guru1@gmail.com'
@@ -16,7 +15,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree', '~> 2.0.3'
+  s.add_dependency 'spree', '~> 3.1.0'
 
   s.add_development_dependency 'capybara', '1.0.1'
   s.add_development_dependency 'factory_girl', '~> 2.6.4'
