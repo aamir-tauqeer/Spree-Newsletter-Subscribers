@@ -1,11 +1,9 @@
 module Spree
   class NewsletterSubscribersController < BaseController
-    rescue_from ActiveRecord::RecordNotFound, :with => :render_404
-    respond_to :html
 
     def create
-      @newsletter_subscriber = NewsletterSubscriber.new(params[:newsletter_subscribers])
-  
+      @newsletter_subscriber = NewsletterSubscriber.new(product_import_params)
+
       respond_to do |format|
         if @newsletter_subscriber.save
           flash[:notice] = 'Your email address was successfully added as a subscriber.'
@@ -16,5 +14,11 @@ module Spree
         end
       end
     end
+
+    private
+      def product_import_params
+        params.require(:newsletter_subscribers).permit!
+      end
+
   end
 end
