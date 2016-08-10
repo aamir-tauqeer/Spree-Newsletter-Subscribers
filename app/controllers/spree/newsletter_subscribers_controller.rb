@@ -9,7 +9,7 @@ module Spree
           flash[:notice] = 'Your email address was successfully added as a subscriber.'
           format.html { redirect_to(root_url) }
         else
-          flash[:error] = 'Unable to add your email address as a subscriber. Perhaps we already have it in our database.'
+          flash[:error] = flash[:error] = @newsletter_subscriber.errors.full_messages.to_sentence
           format.html { redirect_to(root_url) }
         end
       end
