@@ -1,5 +1,7 @@
 module Spree
   class NewsletterSubscriber < ActiveRecord::Base
+    has_secure_token :confirmation_key
+    has_secure_token :subscription_key
 
     validates :email,
               :presence => true,

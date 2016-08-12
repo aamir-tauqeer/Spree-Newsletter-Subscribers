@@ -14,15 +14,19 @@
       <th><%= t(:first_name) %></th>
       <th><%= t(:last_name) %></th>
       <th><%= t(:email) %></th>
+      <th><%= t(:confirmed) %></th>
+      <th><%= t(:subscribed) %></th>
       <th><%= t(:action) %></th>
     </tr>
   </thead>
   <tbody>
     <% @newsletter_subscribers.each do |newsletter_subscriber|%>
     <tr id="<%= spree_dom_id newsletter_subscriber %>" data-hook="newsletter_subscriber_row">
-      <td style="width:250px;"><%= newsletter_subscriber.first_name %></td>
-      <td style="width:250px;"><%= newsletter_subscriber.last_name %></td>
-      <td style="width:250px;"><%= newsletter_subscriber.email %></td>
+      <td style="width:200px;"><%= newsletter_subscriber.first_name %></td>
+      <td style="width:200px;"><%= newsletter_subscriber.last_name %></td>
+      <td style="width:200px;"><%= newsletter_subscriber.email %></td>
+      <td style="width:80px;"><%= newsletter_subscriber.confirmed %></td>
+      <td style="width:80px;"><%= newsletter_subscriber.subscribed %></td>
       <td>
         <%= link_to_edit newsletter_subscriber %> &nbsp;
         <%= link_to_delete newsletter_subscriber %>
