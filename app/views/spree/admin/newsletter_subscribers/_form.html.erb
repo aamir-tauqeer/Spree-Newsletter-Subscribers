@@ -1,16 +1,15 @@
-<div data-hook="admin_newsletter_subscriber_form_fields">
-  <table data-hook="email">
-   <tr>
-      <td><%= t(:first_name) %>:</td>
-      <td><%= f.text_field :first_name, {'style' => 'width:200px'} %></td>
-    </tr>
-     <tr>
-      <td><%= t(:last_name) %>:</td>
-      <td><%= f.text_field :last_name, {'style' => 'width:200px'} %></td>
-    </tr>
-    <tr>
-      <td><%= t(:email) %>:</td>
-      <td><%= f.text_field :email, {'style' => 'width:200px'} %></td>
-    </tr>
-  </table>
-</div>
+<%= form_for [:admin, @newsletter_subscriber || Spree::NewsletterSubscriber.new] do |f| %>
+  <fieldset class="no-border-top">
+    <div class="form-group col-md-3">
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group col-md-3">
+      <div data-hook="buttons" class="form-actions">
+        <%= button Spree.t('actions.save'), 'ok', 'submit', {class: 'btn-success'} %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
