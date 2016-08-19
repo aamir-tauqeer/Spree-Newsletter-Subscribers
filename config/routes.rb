@@ -1,7 +1,12 @@
 Spree::Core::Engine.routes.draw do
   # Add your extension routes here
   namespace :admin do
-    resources :newsletter_subscribers
+    resources :newsletter_subscribers do
+      collection do
+        get "write_email"
+        post "send_email"
+      end
+    end
   end
   resources :newsletter_subscribers
 end

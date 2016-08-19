@@ -3,9 +3,12 @@
 <% end %>
 
 <div class="row">
-  <%= form_for [:admin, Spree::NewsletterSubscriber.new] do |f| %>
-    <%= render :partial => 'form', :locals => { :f => f } %>
-  <% end %>
+  <div class="col-md-6">
+    <%= render :partial => 'form' %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to t(:write_email), write_email_admin_newsletter_subscribers_path, class: "btn btn-success" %>
+  </div>
 </div>
 
 <table class="table">
