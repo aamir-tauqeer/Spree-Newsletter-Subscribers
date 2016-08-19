@@ -1,12 +1,12 @@
 <%= form_for [:admin, @newsletter_subscriber || Spree::NewsletterSubscriber.new] do |f| %>
   <fieldset class="no-border-top">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-6">
       <div class="field">
         <%= f.label :email %><br />
         <%= f.text_field :email, class: 'form-control' %>
       </div>
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-6">
       <div data-hook="buttons" class="form-actions">
         <%= button Spree.t('actions.save'), 'ok', 'submit', {class: 'btn-success'} %>
       </div>

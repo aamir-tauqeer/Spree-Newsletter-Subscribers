@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="page-actions col-md-4 pull-right">
+    <a class="btn btn-default" icon="list" id="admin_new_product" href="<%= admin_newsletter_subscribers_path %>">
+      <span class="icon icon-list"></span>Up
+    </a>
+  </div>
+</div>
+
+<%= form_for Spree::Newsletter.new, url: send_email_admin_newsletter_subscribers_path, method: :post do |f| %>
+  <fieldset class="no-border-top">
+    <div class="form-group col-md-6">
+      <div class="field">
+        <%= f.label :body %><br />
+        <%= f.text_field :body, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <div data-hook="buttons" class="form-actions">
+        <%= button Spree.t('send_email'), 'ok', 'submit', {class: 'btn-success'} %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
