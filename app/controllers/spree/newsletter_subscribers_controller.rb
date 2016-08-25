@@ -6,10 +6,14 @@ module Spree
 
       respond_to do |format|
         if @newsletter_subscriber.save
-          flash[:notice] = 'Your email address was successfully added as a subscriber.'
+          flash[:notice] = Spree.t(:successfully_subscribed)
           format.html { redirect_to(root_url) }
         else
-          flash[:error] = flash[:error] = @newsletter_subscriber.errors.full_messages.to_sentence
+          if @newsletter_subscriber.errors.full_messages.to_sentence == "Email уже существует"
+            flash[:error] = Spree.t(:already_subscribed)
+          else
+            flash[:error] = Spree.t(:wrong_email_input)
+          end
           format.html { redirect_to(root_url) }
         end
       end

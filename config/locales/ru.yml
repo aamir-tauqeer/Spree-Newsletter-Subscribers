@@ -1,0 +1,16 @@
+ru:
+  spree:
+    successfully_subscribed: "Вы были успешно подписаны на рассылку нашего магазина"
+    already_subscribed: "Вы уже подписаны"
+    wrong_email_input: "Подписка невозможна: адрес электронной почты не введен или имеет неверный формат"
+    newsletter_subscribers: "Менеджер подписки"
+    email: "Адрес почты"
+    confirmed: "Подтвержден"
+    subscribed: "Подписан"
+    action: "Действия"
+    write_email: "Написать письмо"
+    "false": "Нет"
+    "true": "Да"
+    body: "Содержимое"
+    send_email: "Отправить"
+    back: "Назад"

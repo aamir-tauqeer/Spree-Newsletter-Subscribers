@@ -1,23 +1,24 @@
-<div class="row">
-  <div class="page-actions col-md-4 pull-right">
-    <a class="btn btn-default" icon="list" id="admin_new_product" href="<%= admin_newsletter_subscribers_path %>">
-      <span class="icon icon-list"></span>Up
-    </a>
-  </div>
-</div>
+<% content_for :page_title do %>
+  <%= Spree.t(:write_email) %>
+<% end %>
 
+<div class="row">
 <%= form_for Spree::Newsletter.new, url: send_email_admin_newsletter_subscribers_path, method: :post do |f| %>
   <fieldset class="no-border-top">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <div class="field">
-        <%= f.label :body %><br />
-        <%= f.text_field :body, class: 'form-control' %>
+        <%= f.label Spree.t(:body) %><br />
+        <%= f.text_area :body, rows: 15, class: 'form-control' %>
       </div>
     </div>
     <div class="form-group col-md-6">
       <div data-hook="buttons" class="form-actions">
-        <%= button Spree.t('send_email'), 'ok', 'submit', {class: 'btn-success'} %>
+        <%= button Spree.t(:send_email), 'ok', 'submit', {class: 'btn-success'} %>
+        <a class="btn btn-default" icon="list" id="admin_new_product" href="<%= admin_newsletter_subscribers_path %>">
+          <span class="icon icon-list"></span><%= Spree.t(:back) %>
+        </a>
       </div>
     </div>
   </fieldset>
 <% end %>
+</div>

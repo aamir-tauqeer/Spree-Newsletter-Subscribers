@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= t(:newsletter_subscribers) %>
+  <%= Spree.t(:newsletter_subscribers) %>
 <% end %>
 
 <div class="row">
@@ -7,25 +7,25 @@
     <%= render :partial => 'form' %>
   </div>
   <div class="col-md-6">
-    <%= link_to t(:write_email), write_email_admin_newsletter_subscribers_path, class: "btn btn-success" %>
+    <%= link_to Spree.t(:write_email), write_email_admin_newsletter_subscribers_path, class: "btn btn-success" %>
   </div>
 </div>
 
 <table class="table">
   <thead>
     <tr data-hook="categories_header">
-      <th><%= t(:email) %></th>
-      <th><%= t(:confirmed) %></th>
-      <th><%= t(:subscribed) %></th>
-      <th><%= t(:action) %></th>
+      <th><%= Spree.t(:email) %></th>
+      <th><%= Spree.t(:confirmed) %></th>
+      <th><%= Spree.t(:subscribed) %></th>
+      <th><%= Spree.t(:action) %></th>
     </tr>
   </thead>
   <tbody>
     <% @newsletter_subscribers.each do |newsletter_subscriber|%>
     <tr id="<%= spree_dom_id newsletter_subscriber %>" data-hook="newsletter_subscriber_row">
       <td style="width:200px;"><%= newsletter_subscriber.email %></td>
-      <td style="width:80px;"><%= newsletter_subscriber.confirmed %></td>
-      <td style="width:80px;"><%= newsletter_subscriber.subscribed %></td>
+      <td style="width:80px;"><%= Spree.t(newsletter_subscriber.confirmed.to_s) %></td>
+      <td style="width:80px;"><%= Spree.t(newsletter_subscriber.subscribed.to_s) %></td>
       <td>
         <%= link_to_edit newsletter_subscriber, no_text: true %>
         <%= link_to_delete newsletter_subscriber, no_text: true %>
