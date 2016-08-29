@@ -1,3 +1,4 @@
-NewsletterMailer
-Вы можете отменить подписку
-http://<%= @current_store.url %>/newsletter_subscribers/unsubscribe/<%= @subscriber.subscription_key %>
+<%= raw(@newsletter.body) %>
+<a href="http://<%= @current_store.url %>/newsletter_subscribers/unsubscribe/<%= @subscriber.subscription_key %>">
+  "Вы можете отменить подписку
+</a>
