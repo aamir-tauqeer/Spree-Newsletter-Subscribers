@@ -1,6 +1,8 @@
 ru:
   spree:
     successfully_subscribed: "Вы были успешно подписаны на рассылку нашего магазина"
+    successfully_confirmed: "Ваша подписка была успешно подтверждена"
+    successfully_unsubscribed: "Ваша подписка была успешно отменена"
     already_subscribed: "Вы уже подписаны"
     wrong_email_input: "Подписка невозможна: адрес электронной почты не введен или имеет неверный формат"
     newsletter_subscribers: "Менеджер подписки"
