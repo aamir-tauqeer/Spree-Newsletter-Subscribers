@@ -1,21 +1,23 @@
 module Spree
   class NewsletterSubscribersController < BaseController
+    def index
+      redirect_to root_url
+    end
 
     def create
-      @newsletter_subscriber = NewsletterSubscriber.new(product_import_params)
+      @newsletter_subscriber = NewsletterSubscriber.create(product_import_params)
 
-      respond_to do |format|
-        if @newsletter_subscriber.save
-          flash[:notice] = Spree.t(:successfully_subscribed)
-          format.html { redirect_to(root_url) }
+      if @newsletter_subscriber.valid?
+        NewsletterSubscriberJob.perform_later(@newsletter_subscriber.id, current_store.id)
+        flash[:notice] = Spree.t(:successfully_subscribed)
+        redirect_to(root_url)
+      else
+        if @newsletter_subscriber.errors.full_messages.to_sentence == "Email уже существует"
+          flash[:error] = Spree.t(:already_subscribed)
         else
-          if @newsletter_subscriber.errors.full_messages.to_sentence == "Email уже существует"
-            flash[:error] = Spree.t(:already_subscribed)
-          else
-            flash[:error] = Spree.t(:wrong_email_input)
-          end
-          format.html { redirect_to(root_url) }
+          flash[:error] = Spree.t(:wrong_email_input)
         end
+        redirect_to(root_url)
       end
     end
 
