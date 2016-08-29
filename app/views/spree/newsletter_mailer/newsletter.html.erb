@@ -1,4 +1,5 @@
 <%= raw(@newsletter.body) %>
+<br>
 <a href="http://<%= @current_store.url %>/newsletter_subscribers/unsubscribe/<%= @subscriber.subscription_key %>">
-  "Вы можете отменить подписку
+  Вы можете отменить подписку
 </a>
