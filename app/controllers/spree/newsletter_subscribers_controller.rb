@@ -20,6 +20,17 @@ module Spree
       end
     end
 
+    def edit
+      @newsletter_subscriber = Spree::NewsletterSubscriber.find_by_id(params[:id])
+      render :edit, layout: false
+    end
+
+    def update
+      @newsletter_subscriber = Spree::NewsletterSubscriber.find_by_id(params[:id])
+      @newsletter_subscriber.update(newsletter_subscriber_params)
+      redirect_to(root_path)
+    end
+
     def confirm
       @newsletter_subscriber = NewsletterSubscriber.where(confirmation_key: params[:key]).first
       @newsletter_subscriber.update(confirmed: true) unless @newsletter_subscriber.confirmed
@@ -55,6 +66,10 @@ module Spree
       def generate_password
         o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
         (0...10).map { o[rand(o.length)] }.join
+      end
+
+      def newsletter_subscriber_params
+        params.require(:newsletter_subscriber).permit!
       end
   end
 end

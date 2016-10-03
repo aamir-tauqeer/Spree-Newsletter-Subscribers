@@ -11,4 +11,9 @@
     <span>Логин: <%= @subscriber.email %></span><br>
     <span>Временный пароль: <%= @pass %></span></p>
   <a href="//<%= @current_store.url %>/account">Личный кабинет</a>
+  <br>
+  <br>
+  <p><small>Вы можете
+    <a href="//<%= @current_store.url %>/newsletter_subscribers/<%= @subscriber.id %>/edit"> изменить </a>
+    настройки получения рассылки</small></p>
 </div>
