@@ -1,3 +1,14 @@
-<a href="http://<%= @current_store.url %>/newsletter_subscribers/confirm/<%= @subscriber.confirmation_key %>">
-  Подтвержите свою подписку в магазине
-</a>
+<div>
+  <h2>Здравствуйте!</h2>
+  <p>Вы успешно подписались на рассылку нашего магазина!
+    <a href="http://<%= @current_store.url %>/newsletter_subscribers/confirm/<%= @subscriber.confirmation_key %>">
+      Подтвердить подписку
+    </a>
+  </p>
+
+  <h6>Также мы создали для Вас аккаунт на нашем сайте:</h6>
+  <p>
+    <span>Логин: <%= @subscriber.email %></span><br>
+    <span>Временный пароль: <%= @pass %></span></p>
+  <a href="//<%= @current_store.url %>/account">Личный кабинет</a>
+</div>

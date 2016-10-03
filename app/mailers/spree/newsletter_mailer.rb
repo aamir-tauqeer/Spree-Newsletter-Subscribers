@@ -1,8 +1,9 @@
 module Spree
   class NewsletterMailer < BaseMailer
-    def confirmation subscriber, current_store
+    def confirmation(subscriber, current_store, temp_pass)
       @subscriber = subscriber.respond_to?(:id) ? subscriber : NewsletterSubscriber.find(subscriber)
       @current_store = current_store.respond_to?(:id) ? current_store : Store.find(current_store)
+      @pass = temp_pass
       subject = 'Newsletter'
       mail(to: subscriber.email, from: from_address, subject: subject)
     end
