@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree', '~> 3.1.0'
+  s.add_dependency 'spree'
   s.add_dependency 'has_secure_token', '~> 1.0.0'
 
   s.add_development_dependency 'capybara', '1.0.1'
