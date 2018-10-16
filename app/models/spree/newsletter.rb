@@ -1,5 +1,5 @@
 class Spree::Newsletter < ActiveRecord::Base
   def emails
-    Spree::NewsletterSubscriber.where(confirmed: true, subscribed: true).map(&:email)
+    Spree::NewsletterSubscriber.all.map(&:email)
   end
 end
